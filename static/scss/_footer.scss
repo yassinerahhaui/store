@@ -40,6 +40,7 @@ footer{
             display: inline-block;
             transition: 1s;
             padding: 0;
+            cursor: pointer;
 
             &:hover{
                 transform: scale(1.1);
