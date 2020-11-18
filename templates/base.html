@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body dir="rtl">
+    <nav>
+        <div class="row">
+        <a class="logo" ><b>LOGO</b></a>
+        <a class="menu" onclick="displayHide()"><i class="fas fa-bars"></i></a>
+            <ul id="demo">
+                <li><a href="">الرئيسية</a></li>
+                <li><a href="">دخول</a></li>
+                <li><a href="">تسجيل</a></li>
+                <li><a>القائمة</a>
+                    <ul class="list2">
+                        {% for cg in category %}
+                        <li><a href="">{{ cg.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="nav-mag">
+        <img src="{% static 'images/shopping.jpg' %}" alt="">
+    </div>
+    <main>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <ul class="list">
+                    {% for cg in category %}
+                        <li><a href="">{{ cg.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="row">
+            <div class="col-md-4" style="height: 300px;">
+                <form action="" method="post">
+                    <div class="container">
+                        <label for="email">email:</label>
+                    <input type="email" name="email" id="email">
+                    <label for="message">message:</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <button type="submit">send</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <div class="row" style="color: white;">
+                    <div class="col-md-12 icon" style="height: 100px;">
+                        <a onclick="facebook()"><i class="fab fa-facebook-square"></i></a>
+                        <a onclick="instagram()"><i class="fab fa-instagram-square"></i></a>
+                        <a onclick="twitter()"><i class="fab fa-twitter-square"></i></a>
+                        <a onclick="snapchat()"><i class="fab fa-snapchat-square"></i></a>
+                    </div>
+                    <div class="col-md-6 contact">
+                        <address><b>email:</b> yassinerahhaoui12@gmail.com</address>
+                        <address><b>phone:</b> 212630034545</address>
+                    </div>
+                    <div class="col-md-6 created">
+                        <address><b>created_by:</b> yassine rahhaoui</address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

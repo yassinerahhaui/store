@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Store{% endblock title %}
+
+
+{% block content %}
+
+{% for store in stors %}
+<div class="col-md-3 card">
+    <a href="">
+    <img src="{{ store.image.url }}" alt="{{ store.header }}">
+    <h2>{{ store.header }}</h2>
+    <h3>$ {{ store.price }}</h3>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock content %}
+    

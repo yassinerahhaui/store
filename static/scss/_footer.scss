@@ -1,0 +1,57 @@
+$red: rgb(236, 60, 90);
+footer{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    overflow: hidden;
+
+    label{
+        color: white;
+        font-weight: bold;
+        font-style: italic;
+    }
+    input,textarea{
+        width: 100%;
+        padding: 5px;
+        border: 2px solid $primarycolor;
+        border-radius: 5px;
+    }
+    button{
+        border: 2px solid $primarycolor;
+        color: white;
+        background-color: $primarycolor;
+        border-radius: 3px;
+        padding: 5px 10px;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .icon{
+        text-align: center;
+        i{
+            &:hover{
+                text-shadow: 0 0 10px $primarycolor,0 0 10px $primarycolor;
+            }
+        }
+        a{
+            font-size: 3em;
+            color: white;
+            margin: 2vw;
+            display: inline-block;
+            transition: 1s;
+            padding: 0;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+    .contact{
+        text-align: center;
+        line-height: 50px;
+    }
+    .created{
+        text-align: center;
+        line-height: 100px;
+    }
+}
