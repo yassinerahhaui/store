@@ -5,7 +5,7 @@
 
 {% block content %}
 
-{% for stor in stors %}
+{% for stor in content1 %}
 <div class="col-md-3 card">
     <a href="{% url 'store' stor.id %}">
     <img src="{{ stor.image.url }}" alt="{{ stor.header }}">

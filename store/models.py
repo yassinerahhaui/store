@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 def image_upload(instance,filename):
@@ -14,7 +15,7 @@ class Store(models.Model):
     header = models.CharField(max_length=100)
     image = models.ImageField(upload_to=image_upload)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    content = models.TextField()
+    content = RichTextField()
     title = models.CharField(max_length=100)
     description = models.TextField()
     keywords = models.TextField()

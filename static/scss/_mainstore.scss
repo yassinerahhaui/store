@@ -1,0 +1,20 @@
+.main-store{
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: $font1;
+    h1{
+        text-align: center;
+        
+    }
+    img{
+        width: 100%;
+        max-height: 500px;
+        display: block;
+        border: 1px dashed black;
+    }
+    
+}

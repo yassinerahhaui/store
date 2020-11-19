@@ -134,7 +134,7 @@ nav .logo {
 .list li a {
   text-decoration: none;
   color: black;
-  font-family: 'Markazi Text', serif;
+  font-family: "Markazi Text", serif;
 }
 
 main {
@@ -242,6 +242,27 @@ footer .contact {
 footer .created {
   text-align: center;
   line-height: 100px;
+}
+
+.main-store {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Markazi Text", serif;
+}
+
+.main-store h1 {
+  text-align: center;
+}
+
+.main-store img {
+  width: 100%;
+  max-height: 500px;
+  display: block;
+  border: 1px dashed black;
 }
 
 *,

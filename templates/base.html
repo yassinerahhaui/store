@@ -15,13 +15,13 @@
         <a class="logo" ><b>LOGO</b></a>
         <a class="menu" onclick="displayHide()"><i class="fas fa-bars"></i></a>
             <ul id="demo">
-                <li><a href="">الرئيسية</a></li>
+                <li><a href="{% url 'all_store' %}">الرئيسية</a></li>
                 <li><a href="">دخول</a></li>
                 <li><a href="">تسجيل</a></li>
                 <li><a>القائمة</a>
                     <ul class="list2">
                         {% for cg in category %}
-                        <li><a href="">{{ cg.name }}</a></li>
+                        <li><a href="{% url 'category' cg.id %}">{{ cg.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
@@ -33,21 +33,25 @@
         <img src="{% static 'images/shopping.jpg' %}" alt="">
     </div>
     <main>
+         
         <div class="row">
             <div class="col-md-10">
+                {% block main %} 
                 <div class="row">
                     {% block content %}
                     {% endblock content %}
                 </div>
+                {% endblock main %}
             </div>
             <div class="col-md-2">
                 <ul class="list">
                     {% for cg in category %}
-                        <li><a href="">{{ cg.name }}</a></li>
+                        <li><a href="{% url 'category' cg.id %}">{{ cg.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
+        
     </main>
     <footer>
         <div class="row">
@@ -81,6 +85,13 @@
             </div>
         </div>
     </footer>
+    
+    
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'elevatezoom/jquery-1.8.3.min.js'%}"></script>
+    <script src="{% static 'elevatezoom/jquery.elevateZoom-3.0.8.min.js'%}"></script>
+    <script>
+        $('#zoom_01').elevateZoom();
+    </script>
 </body>
 </html>
