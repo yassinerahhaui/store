@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'ckeditor',
-    'accounts',
     "bootstrap4",
 ]
 
@@ -132,6 +132,10 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+LOGIN_REDIRECT_URL = "store:all_store"
+LOGOUT_REDIRECT_URL = "store:all_store"
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 

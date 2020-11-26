@@ -256,6 +256,11 @@ footer .created {
   line-height: 100px;
 }
 
+footer .errorlist {
+  color: red;
+  font-weight: bold;
+}
+
 .main-store {
   width: 100%;
   border: 2px solid black;

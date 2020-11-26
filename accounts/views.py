@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from store.models import Category
 from django.contrib.auth import login as auth_login
 from .forms import RegisterForm
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def register(request):
@@ -20,3 +22,4 @@ def register(request):
         "category": category,
     }
     return render(request,'register.html',context)
+

@@ -16,8 +16,13 @@
         <a class="menu" onclick="displayHide()"><i class="fas fa-bars"></i></a>
             <ul id="demo">
                 <li><a href="{% url 'store:all_store' %}">الرئيسية</a></li>
-                <li><a href="">دخول</a></li>
-                <li><a href="{% url 'account:register' %}">تسجيل</a></li>
+                
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'login' %}">دخول</a></li>
+                    <li><a href="{% url 'account:register' %}">تسجيل</a></li>
+                {% endif %}
+                    
+                
                 <li><a>القائمة <i class="fas fa-sort-down"></i></a>
                     <ul class="list2">
                         {% for cg in category %}
@@ -25,17 +30,17 @@
                         {% endfor %}
                     </ul>
                 </li>
-                <li><a href="">تواصل معنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
                 
             </ul>
         </div>
-        {% if user.username %}
+        {% if user.is_authenticated %}
             <ul dir="ltr">
                 <li id="list3">
                     <a>{{ user.username }} <i class="fas fa-sort-down"></i></a>
                     <ul id="account_list">
-                        <li><a href="">تغيير كلمة المرور</a></li>
-                        <li><a href="">تسجيل الخروج</a></li>
+                        <li><a href="{% url 'password_change' %}">تغيير كلمة المرور</a></li>
+                        <li><a href="{% url 'logout' %}">تسجيل الخروج</a></li>
                     </ul>
                 </li>
             </ul>
@@ -46,6 +51,11 @@
         <img src="{% static 'images/shopping.jpg' %}" alt="">
         <h1>تسوق أونلاين</h1>
     </div>
+    
+    {% block body %}
+        
+    
+        
     <main>
          <div class="col-12">
         <div class="row">
@@ -85,16 +95,15 @@
         </div>
         
     </main>
+    {% endblock body %}
     <footer>
         <div class="col-12">
         <div class="row">
-            <div class="col-md-4" style="height: 300px;">
-                <form action="" method="post">
+            <div class="col-md-4" id="contact"> 
+                <form method="post" class="mb-2">
                     <div class="container">
-                        <label for="email">email:</label>
-                    <input type="email" name="email" id="email">
-                    <label for="message">message:</label>
-                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    {% csrf_token %}
+                    {{form.as_table}}
                     <button type="submit">send</button>
                     </div>
                 </form>
