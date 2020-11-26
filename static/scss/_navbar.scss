@@ -13,6 +13,7 @@
             border-radius: 4px;
             display: block !important;
         }
+        
         ul{
             display: none;
             float: none;
@@ -40,7 +41,7 @@
         display: none !important;
     }
     nav{
-        ul:not(.list2){
+        ul:not(.list2),#list3{
             display: block !important;
         }
     }
@@ -50,7 +51,9 @@ nav{
     overflow: hidden;
     height: 70px;
     background-color: black;
-    
+    display: flex;
+    justify-content: space-between;
+
     ul:not(.list2){
         list-style-type: none;
         margin: 0;
@@ -104,4 +107,14 @@ nav{
         margin-right: 50px;
         line-height: 30px;
     }
+}
+
+#list3{
+    &:hover > #account_list{
+        display: block !important;
+    }
+    #account_list{
+        display: none !important;
+    }
+    
 }

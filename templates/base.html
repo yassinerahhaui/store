@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap-grid.min.css' %}">
-    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">  
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body dir="rtl">
@@ -15,25 +15,39 @@
         <a class="logo" ><b>LOGO</b></a>
         <a class="menu" onclick="displayHide()"><i class="fas fa-bars"></i></a>
             <ul id="demo">
-                <li><a href="{% url 'all_store' %}">الرئيسية</a></li>
+                <li><a href="{% url 'store:all_store' %}">الرئيسية</a></li>
                 <li><a href="">دخول</a></li>
-                <li><a href="">تسجيل</a></li>
-                <li><a>القائمة</a>
+                <li><a href="{% url 'account:register' %}">تسجيل</a></li>
+                <li><a>القائمة <i class="fas fa-sort-down"></i></a>
                     <ul class="list2">
                         {% for cg in category %}
-                        <li><a href="{% url 'category' cg.id %}">{{ cg.name }}</a></li>
+                        <li><a href="{% url 'store:category' cg.id %}">{{ cg.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
                 <li><a href="">تواصل معنا</a></li>
+                
             </ul>
         </div>
+        {% if user.username %}
+            <ul dir="ltr">
+                <li id="list3">
+                    <a>{{ user.username }} <i class="fas fa-sort-down"></i></a>
+                    <ul id="account_list">
+                        <li><a href="">تغيير كلمة المرور</a></li>
+                        <li><a href="">تسجيل الخروج</a></li>
+                    </ul>
+                </li>
+            </ul>
+        {% endif %}
+        
     </nav>
     <div class="nav-mag">
         <img src="{% static 'images/shopping.jpg' %}" alt="">
+        <h1>تسوق أونلاين</h1>
     </div>
     <main>
-         
+         <div class="col-12">
         <div class="row">
             <div class="col-md-10">
                 {% block main %} 
@@ -41,19 +55,38 @@
                     {% block content %}
                     {% endblock content %}
                 </div>
+                
+                {% if stors.has_other_pages %}
+                    <ul class="pagination" dir="ltr">
+                        {% if stors.has_previous %}  
+                            <li><a href="?page={{ stors.previous_page_number }}"><i class="fas fa-angle-left"></i></a></li>
+                        {% endif %}
+                        
+                        {% for i in stors.paginator.page_range %}
+                            <li><a href="?page={{i}}">{{i}}</a></li>
+                        {% endfor %}
+                            
+                        
+                        {% if stors.has_next %} 
+                            <li><a href="?page={{ stors.next_page_number }}"><i class="fas fa-angle-right"></i></a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
                 {% endblock main %}
             </div>
             <div class="col-md-2">
                 <ul class="list">
                     {% for cg in category %}
-                        <li><a href="{% url 'category' cg.id %}">{{ cg.name }}</a></li>
+                        <li><a href="{% url 'store:category' cg.id %}">{{ cg.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
+        </div>
         
     </main>
     <footer>
+        <div class="col-12">
         <div class="row">
             <div class="col-md-4" style="height: 300px;">
                 <form action="" method="post">
@@ -84,8 +117,8 @@
                 </div>
             </div>
         </div>
+        </div>
     </footer>
-    
     
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'elevatezoom/jquery-1.8.3.min.js'%}"></script>

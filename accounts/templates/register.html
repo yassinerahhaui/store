@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Store{% endblock title %}
+{% block main %}
+    <div class="main-store col-md-5 col-lg-4 mx-auto" dir="ltr">
+        <h1>register</h1>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn mt-3">Submit</button>
+        </form>
+    </div>
+{% endblock main %}
+
+
+
+
+

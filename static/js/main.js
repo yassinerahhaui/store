@@ -1,9 +1,9 @@
 function displayHide() {
     var x = document.getElementById("demo").style;
-    if (x.display == "none") {
-        x.display="block";
+    if (x.display == "block") {
+        x.display="none";
     }else{
-        x.display="none"
+        x.display="block";
     }
   }
 function facebook(){

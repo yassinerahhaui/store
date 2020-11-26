@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 # Create your models here.
 def image_upload(instance,filename):
@@ -20,6 +21,9 @@ class Store(models.Model):
     description = models.TextField()
     keywords = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
+
 
     def __str__(self):
         return self.header

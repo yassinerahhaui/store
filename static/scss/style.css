@@ -39,7 +39,7 @@
   .menu {
     display: none !important;
   }
-  nav ul:not(.list2) {
+  nav ul:not(.list2), nav #list3 {
     display: block !important;
   }
 }
@@ -49,6 +49,12 @@ nav {
   overflow: hidden;
   height: 70px;
   background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 nav ul:not(.list2) {
@@ -112,6 +118,14 @@ nav .logo {
   line-height: 30px;
 }
 
+#list3:hover > #account_list {
+  display: block !important;
+}
+
+#list3 #account_list {
+  display: none !important;
+}
+
 .list {
   margin: 0;
   padding: 0;
@@ -137,14 +151,11 @@ nav .logo {
   font-family: "Markazi Text", serif;
 }
 
-main {
-  margin-right: 10px;
-}
-
 .card {
   height: 300px;
   position: relative;
   margin-bottom: 10px;
+  max-width: 100%;
 }
 
 .card img {
@@ -167,6 +178,7 @@ main {
   padding: 5px 10px;
   color: black;
   border-radius: 5px;
+  max-width: 75%;
 }
 
 .card h3 {
@@ -265,6 +277,63 @@ footer .created {
   border: 1px dashed black;
 }
 
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: x-large;
+}
+
+input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: pink;
+}
+
+.btn {
+  color: black;
+  font-weight: bold;
+  background-color: #f161d9;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+.pagination {
+  list-style-type: none;
+  padding: 0;
+  margin: 20ox;
+  width: 100%;
+  text-align: center;
+}
+
+.pagination li {
+  text-align: center;
+  display: inline;
+}
+
+.pagination li a {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pagination li a:hover {
+  -webkit-box-shadow: 0 0 10px black,0 0 10px black;
+          box-shadow: 0 0 10px black,0 0 10px black;
+  text-shadow: 0 0 10px black,0 0 10px black;
+}
+
 *,
 *::before,
 *::after {
@@ -283,16 +352,30 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8a5c2;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
-.nav-mag {
+.nav-mag > {
   width: 100%;
+  position: relative;
 }
 
-.nav-mag img {
+.nav-mag > img {
   width: 100%;
   height: 80vh;
   z-index: 0;
+}
+
+.nav-mag > h1 {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center;
+  z-index: 10;
+  font-family: "Markazi Text", serif;
+  font-size: 10vw;
+  text-shadow: 0 0 10px white,0 0 10px white;
 }
 /*# sourceMappingURL=style.css.map */

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'ckeditor',
-    'register',
+    'accounts',
+    "bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,8 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+
 
 
 # ckeditor plugin

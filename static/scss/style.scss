@@ -6,6 +6,8 @@
 @import "card";
 @import "footer";
 @import "mainstore";
+@import "form";
+@import "pagination";
 
 
 *,
@@ -24,17 +26,28 @@ body{
     margin: 0;
     padding: 0;
     background-color: #f8a5c2;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
-.nav-mag{
+.nav-mag >{
     width: 100%;
+    position: relative;
     img{
         width: 100%;
         height: 80vh;
         z-index: 0;
     }
-    
+    h1{
+      position: absolute;
+      width: 100%;
+      top: 40%;
+      transform: translateY(-50%);
+      text-align: center;
+      z-index: 10;
+      font-family: $font1;
+      font-size: 10vw;
+      text-shadow: 0 0 10px white,0 0 10px white;
+    }
 }
 
 
