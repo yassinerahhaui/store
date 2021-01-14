@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'store_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db1',
-        'USER': 'yassine',
-        'PASSWORD': 'enigma1995111',
+        'NAME': 'storedb',
+        'USER': 'admin',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar'
 
 TIME_ZONE = 'UTC'
 
